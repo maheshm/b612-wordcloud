@@ -42,6 +42,4 @@ public class InputConfiguration {
         this.source = new StringInputHandler(data);
     }
 
-
-
 }

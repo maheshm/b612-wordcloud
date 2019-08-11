@@ -5,13 +5,11 @@ import java.util.Map;
 
 public class WordCloudCore {
     private InputConfiguration inputConfig = new InputConfiguration();
-
+    private OutputConfiguration oc = new OutputConfiguration();
+    
     public WordCloudCore(String[] cmdLineArgs) throws ParseException {
         this.inputConfig.parseArgs(cmdLineArgs);
-    }
-
-    public WordCloudCore() {
-
+        this.oc.parseArgs(cmdLineArgs);        
     }
 
     public void setInputFile(String fileName) {
@@ -27,8 +25,8 @@ public class WordCloudCore {
         InputHandler source = this.inputConfig.source;
 
         fa.loadData(source);
-
-        OutputHandler oh = new CsvHandler();
+        
+        OutputHandler oh = new CsvHandler(this.oc);
         return(oh.getFrequencies());
     }
 }
