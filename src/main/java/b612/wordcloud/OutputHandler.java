@@ -1,5 +1,7 @@
 package b612.wordcloud;
 
-public interface OutputHandler {
+import java.util.Map;
 
+public interface OutputHandler {
+    public Map<String, Integer> getFrequencies();
 }
